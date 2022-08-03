@@ -15,11 +15,23 @@ class _GridDetailsState extends State<GridDetails> {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        margin: EdgeInsets.all(30),
+        margin: const EdgeInsets.all(5),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            const SizedBox(height: 50),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                OutlinedButton(
+                    onPressed: () => Navigator.of(context).pop(),
+                    child: const Icon(Icons.close_outlined)),
+                OutlinedButton(
+                    onPressed: () {}, child: const Icon(Icons.share_outlined)),
+              ],
+            ),
+            const SizedBox(height: 50),
             Hero(
               tag: 'image${widget.photo.id}',
               child: FadeInImage.assetNetwork(
@@ -27,10 +39,6 @@ class _GridDetailsState extends State<GridDetails> {
                 image: widget.photo.url,
               ),
             ),
-            const SizedBox(height: 30),
-            OutlinedButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Icon(Icons.close))
           ],
         ),
       ),

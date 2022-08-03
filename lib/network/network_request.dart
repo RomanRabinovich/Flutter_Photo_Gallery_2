@@ -17,7 +17,7 @@ class NetworkRequest {
     if (response.statusCode == 200) {
       return compute(parsePhotos, response.body);
     } else {
-      throw Exception('Cannot get photos');
+      throw Exception('End of story...');
     }
   }
 }
